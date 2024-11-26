@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <title>Formularz Produktu</title>
+    <!-- Bootstrap CDN link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4" th:text="${product.id == null ? 'Dodaj produkt' : 'Edytuj produkt'}"></h1>
+
+    <!-- Form for product -->
+    <form th:action="@{/products}" th:object="${product}" method="post" class="border p-4 rounded shadow-sm">
+        <div class="form-group">
+            <label for="name">Nazwa</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Wprowadź nazwę produktu" />
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Waga</label>
+            <input type="number" id="weight" class="form-control" step="0.01" th:field="*{weight}" placeholder="Wprowadź wagę produktu (kg)" />
+        </div>
+
+        <div class="form-group">
+            <label for="price">Cena</label>
+            <input type="number" id="price" class="form-control" step="0.01" th:field="*{price}" placeholder="Wprowadź cenę produktu (PLN)" />
+        </div>
+
+        <div class="form-group">
+            <label for="category">Kategoria</label>
+            <input type="text" id="category" class="form-control" th:field="*{category}" placeholder="Wprowadź kategorię produktu" />
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block">Zapisz</button>
+    </form>
+
+    <!-- Back link -->
+    <div class="text-center mt-4">
+        <a href="/products" class="btn btn-secondary">Powrót</a>
+    </div>
+</div>
+
+<!-- Optional: Bootstrap JS and Popper.js for interactivity -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
