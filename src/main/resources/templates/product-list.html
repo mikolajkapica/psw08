@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produkty</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container {
@@ -45,7 +44,6 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Thymeleaf will loop over the 'products' list and display each product -->
             <tr th:each="product : ${products}">
                 <td th:text="${product.id}"></td>
                 <td th:text="${product.name}"></td>
@@ -62,7 +60,6 @@
     </div>
 </div>
 
-<!-- Bootstrap JS (optional for interactivity like modals) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0hVrb0px5fD9uL5fPYz5e/Jp+7Hq5QsSA1QUW/5yNl9+4d9X" crossorigin="anonymous"></script>
 </body>
 </html>

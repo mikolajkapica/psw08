@@ -2,16 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <title>Szczegóły Produktu</title>
-    <!-- Add Bootstrap CDN link -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Container to center the content -->
 <div class="container mt-5">
     <h1 class="text-center mb-4">Szczegóły Produktu</h1>
 
-    <!-- Card for displaying product details -->
     <div class="card shadow-sm">
         <div class="card-body">
             <h4 class="card-title">Informacje o produkcie</h4>
@@ -20,19 +17,16 @@
                 <li class="list-group-item"><strong>Nazwa:</strong> <span th:text="${product.name}"></span></li>
                 <li class="list-group-item"><strong>Waga:</strong> <span th:text="${product.weight}"></span> kg</li>
                 <li class="list-group-item"><strong>Cena:</strong> <span th:text="${product.price}"></span> PLN</li>
-                <li class="list-group-item"><strong>Indeks:</strong> <span th:text="${product.index}"></span></li>
                 <li class="list-group-item"><strong>Kategoria:</strong> <span th:text="${product.category}"></span></li>
             </ul>
         </div>
     </div>
 
-    <!-- Back link -->
     <div class="text-center mt-4">
         <a href="/products" class="btn btn-primary">Powrót</a>
     </div>
 </div>
 
-<!-- Optional: Bootstrap JS and Popper.js for any interactivity (e.g., tooltips, dropdowns) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
