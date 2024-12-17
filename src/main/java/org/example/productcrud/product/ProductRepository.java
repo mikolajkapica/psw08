@@ -1,4 +1,4 @@
-package org.example.productcrud;
+package org.example.productcrud.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

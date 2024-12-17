@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <title>Formularz Produktu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4" th:text="${category.id == null ? 'Dodaj kategorię' : 'Edytuj kategorię'}"></h1>
+
+    <form th:action="@{/categories}" th:object="${category}" method="post" class="border p-4 rounded shadow-sm">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="name">Nazwa</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Wprowadź nazwę kategorii" />
+        </div>
+
+        <div class="form-group">
+            <label for="code">Kod</label>
+            <input type="text" id="code" class="form-control" th:field="*{code}" placeholder="Wprowadź kod kategorii" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Zapisz</button>
+    </form>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary">Powrót</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

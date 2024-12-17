@@ -1,16 +1,14 @@
-package org.example.productcrud;
+package org.example.productcrud.product;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     public List<Product> findAll() {
         return productRepository.findAll();
@@ -20,8 +18,8 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Produkt nie znaleziony"));
     }
 
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public void save(Product product) {
+        productRepository.save(product);
     }
 
     public void deleteById(Long id) {
