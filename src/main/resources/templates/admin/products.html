@@ -77,7 +77,7 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.weight}"></td>
         <td th:text="${product.price}"></td>
-        <td th:text="${product.prettyPrintCategories()}"></td>
+<!--        <td th:text="${product.getCategoryNames()}"></td>-->
         <td>
           <a th:href="@{/products/details/{id}(id=${product.id})}" class="btn btn-info action-btn">Szczegóły</a>
           <a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-warning action-btn">Edycja</a>

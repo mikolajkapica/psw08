@@ -1,4 +1,4 @@
-package org.example.productcrud;
+package org.example.productcrud.users;
 
 import lombok.AllArgsConstructor;
 import org.example.productcrud.category.CategoryService;
@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 @AllArgsConstructor
-public class CrudApplicationController {
+public class AdminController {
     private final ProductService productService;
     private final CategoryService categoryService;
 
+
     @GetMapping
-    public String listProducts(Model model) {
+    public String viewProducts(Model model) {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("categories", categoryService.findAll());
-        return "index";
+        return "admin/products";
     }
 }

@@ -16,25 +16,25 @@ public class CategoryController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("category", new Category());
-        return "category-form";
+        return "admin/category-form";
     }
 
     @PostMapping
     public String saveCategory(@ModelAttribute Category category) {
         categoryService.save(category);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("category", categoryService.findById(id));
-        return "category-form";
+        return "admin/category-form";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteCategory(@PathVariable Long id) {
         categoryService.findById(id).getProducts().forEach(product -> productService.deleteById(product.getId()));
         categoryService.deleteById(id);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 }

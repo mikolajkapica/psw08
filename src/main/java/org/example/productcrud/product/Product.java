@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.example.productcrud.category.Category;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -19,13 +18,11 @@ public class Product {
     private double price;
     private int index;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(name = "product_category",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
-    private Set<Category> categories = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
+    private Set<Category> categories;
 
-    public String prettyPrintCategories() {
+    public String getCategoryNames() {
         return categories.stream().map(Category::getName).collect(Collectors.joining(", "));
     }
 }

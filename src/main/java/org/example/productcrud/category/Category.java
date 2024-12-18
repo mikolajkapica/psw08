@@ -15,6 +15,6 @@ public class Category {
     private String name;
     private String code;
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     private Set<Product> products;
 }

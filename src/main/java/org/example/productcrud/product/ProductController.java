@@ -17,31 +17,31 @@ public class ProductController {
     public String showAddForm(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("categories", categoryService.findAll());
-        return "product-form";
+        return "admin/product-form";
     }
 
     @PostMapping
     public String saveProduct(@ModelAttribute Product product) {
         productService.save(product);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.findById(id));
         model.addAttribute("categories", categoryService.findAll());
-        return "product-form";
+        return "admin/product-form";
     }
 
     @GetMapping("/details/{id}")
     public String viewDetails(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.findById(id));
-        return "product-details";
+        return "admin/product-details";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteById(id);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 }
